@@ -4,12 +4,10 @@ public:
 
         vector<int> freq(26, 0);
 
-        // Count frequency
         for (char c : tasks) {
             freq[c - 'A']++;
         }
 
-        // Max heap
         priority_queue<int> pq;
 
         for (int f : freq) {
@@ -23,7 +21,6 @@ public:
 
             vector<int> temp;
 
-            // One cycle = n + 1
             for (int i = 0; i <= n; i++) {
 
                 if (!pq.empty()) {
@@ -38,7 +35,7 @@ public:
                     time++;
                 }
                 else {
-                    // No task available
+                    
                     if (temp.empty())
                         break;
 
@@ -46,7 +43,7 @@ public:
                 }
             }
 
-            // Put unfinished tasks back
+            
             for (int f : temp) {
                 pq.push(f);
             }
